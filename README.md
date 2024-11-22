@@ -93,3 +93,26 @@ Notes:
 - you can rename the result field of statistical function using the "as" keywork:  `values(Image) as all_Child_proc`
 - when you used "by" clause, one row is returned for each distinct value in the field specified in the "by" clause
 
+
+
+# "eventstats":
+
+similar to stats function. the main deffierence is that eventstats does not change the incoming result, it only add the result to it. eventstats support same functions in stats command.
+
+exmples: 
+
+```
+index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="1" 
+| eventstats values(Image) as all_Child_proc count by  ParentImage
+```
+
+
+# "streamtstats":
+incrementaly adds a cumulative statistical value to each event in the result. it support same functions in stats and eventstats.
+
+options:
+- current: "true" or "false" to includes the current event in the summary calculations. Default is "true"
+- window: the number of events to use when computing the statistics. The default is window="-1" to include all events 
+- global: "true" or "false" and used only if window option is set. it determine if a separate window is used for each group of values of the field specified in the by clause. Default is "true"
+
+
