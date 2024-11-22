@@ -116,3 +116,10 @@ options:
 - global: "true" or "false" and used only if window option is set. it determine if a separate window is used for each group of values of the field specified in the by clause. Default is "true"
 
 
+exmples: 
+
+```
+index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="3" 
+| streamstats current="true" window="2"  first(UtcTime) last(UtcTime)  
+
+```
