@@ -58,6 +58,11 @@ examples:
 
 stats command is used to calculate statistics such as average, sum or standard deviation.
 
+syntax:
+
+`stats <FUNCTIONS>  <BY>  <FIELD_NAMES>`
+
+
 available functions:
 - count
 - dc (or distinct_count)
