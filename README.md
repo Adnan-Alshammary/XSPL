@@ -22,7 +22,9 @@ or
 
 `index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID IN ("1","2") `
 
-Note: keyword between conditions such as "AND", "OR", "IN" should be written in upper-case
+Notes: 
+- keyword between conditions such as "AND", "OR", "IN" should be written in upper-case
+- you can use wildcard conditions in the language such as ` "cmd.exe" OR "powershell" `
 
 
 
