@@ -60,8 +60,7 @@ stats command is used to calculate statistics such as average, sum or standard d
 
 available functions:
 - count
-- dc
-- distinct_count
+- dc (or distinct_count)
 - avg
 - average
 - range
