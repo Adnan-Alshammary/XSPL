@@ -28,7 +28,7 @@ Notes:
 
 
 ### scan:
-scan command is used to perform search for file in disck or process in memory.
+scan command is used to perform search for file in disk or process in memory.
 
 syntax:
 `scan  {"hex regex"}  "string regex"`
