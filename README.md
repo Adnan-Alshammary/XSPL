@@ -32,6 +32,7 @@ scan command is used to perform search for file in disk or process in memory.
 
 syntax:
 `scan  {"Hex_regex"}  "String_Regex"`
+
 options:
 - directory: can be directory or specific file path or "memory" for memory scanning. default is current directory
 - max_size: avoid file or memory regions greater than this option. to perform full scan  max_size="-1"
