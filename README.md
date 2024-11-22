@@ -54,3 +54,27 @@ examples:
 `scan directory="C:\Users\adnan\Desktop\" "http"  {"^4d5a"} `
 
 
+# "stats":
+
+stats command is used to calculate statistics such as average, sum or standard deviation.
+
+available functions:
+- count
+- dc
+- distinct_count
+- avg
+- average
+- range
+- max
+- min
+- stdev
+- mode
+- list
+- values
+- sum
+- median
+- mean
+- var
+- first
+- last
+
