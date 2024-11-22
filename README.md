@@ -82,3 +82,9 @@ exmples:
 index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="1" 
 | stats values(Image) as all_Child_proc count by  ParentImage
 ```
+
+Notes:
+- each statistical function must receive one argument except "count" can be used without argument
+- you can rename the result field of statistical function using the "as" keywork  `values(Image) as all_Child_proc`
+- when you used "by" clause, one row is returned for each distinct value in the field specified in the "by" clause
+
