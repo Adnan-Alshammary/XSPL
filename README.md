@@ -40,15 +40,15 @@ options:
    
 examples:
 
-scan memory and extract strings that contains "http":
+- scan memory and extract strings that contains "http":
 
 `scan directory="memory" "http"`
 
-scan specific file and extract strings that contains "http":
+- scan specific file and extract strings that contains "http":
 
 `scan directory="C:\Users\adnan\Desktop\pwshem\HxD.exe" "http"`
 
-scan a directory and extract string contains "http" from executable files only:
+- scan a directory and extract string contains "http" from executable files only:
 
 `scan directory="C:\Users\adnan\Desktop\" "http"  {"^4d5a"} `
 
