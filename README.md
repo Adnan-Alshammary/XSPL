@@ -34,9 +34,9 @@ syntax:
 `scan  {"Hex_regex"}  "String_Regex"`
 
 options:
-- directory: can be directory or specific file path or "memory" for memory scanning. default is current directory
-- max_size: avoid file or memory regions greater than this option. to perform full scan  max_size="-1"
-- depth: this option used with directory file scanning to put limit for recursive search. default is 0 which means search in the provided directory only. to perform full recursive search you can use depth="-1"
+- **directory**: can be directory or specific file path or "memory" for memory scanning. default is current directory
+- **max_size**: avoid file or memory regions greater than this option. to perform full scan  max_size="-1"
+- **depth**: this option used with directory file scanning to put limit for recursive search. default is 0 which means search in the provided directory only. to perform full recursive search you can use depth="-1"
 
    
 examples:
@@ -64,22 +64,22 @@ syntax:
 
 
 available functions:
-- count
-- dc (or distinct_count)
-- avg (or average)
-- range
-- max
-- min
-- stdev
-- mode
-- list
-- values
-- sum
-- median
-- mean
-- var
-- first
-- last
+- **count**
+- **dc** (or **distinct_count**)
+- **avg** (or **average**)
+- **range**
+- **max**
+- **min**
+- **stdev**
+- **mode**
+- **list**
+- **values**
+- **sum**
+- **median**
+- **mean**
+- **var**
+- **first**
+- **last**
 
 exmples: 
 
@@ -111,9 +111,9 @@ index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evt
 incrementaly adds a cumulative statistical value to each event in the result. it support same functions in stats and eventstats.
 
 options:
-- current: "true" or "false" to includes the current event in the summary calculations. Default is "true"
-- window: the number of events to use when computing the statistics. The default is window="-1" to include all events 
-- global: "true" or "false" and used only if window option is set. it determine if a separate window is used for each group of values of the field specified in the by clause. Default is "true"
+- **current**: "true" or "false" to includes the current event in the summary calculations. Default is "true"
+- **window**: the number of events to use when computing the statistics. The default is window="-1" to include all events 
+- **global**: "true" or "false" and used only if window option is set. it determine if a separate window is used for each group of values of the field specified in the by clause. Default is "true"
 
 
 exmples: 
