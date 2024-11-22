@@ -76,3 +76,7 @@ available functions:
 - first
 - last
 
+exmples: 
+
+`index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="1" 
+| stats values(Image) as all_Child_proc count by Image ParentImage `
