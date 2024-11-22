@@ -27,4 +27,26 @@ Notes:
 - you can use wildcard conditions in the query without specifying the field name  ` "cmd.exe" OR "powershell" `
 
 
+### scan:
+scan command is used to perform search for file in disck or process in memory.
+
+syntax:
+`scan  {"hex regex"}  "string regex"`
+options:
+- directory: can be directory or specific file path or "memory" for memory scanning. default is current directory
+- max_size: avoid file or memory regions greater than this option. to perform full scan  max_size="-1"
+- depth: this option used with directory file scanning to put limit for recursive search. default is 0 which means search in the provided directory only. to perform full recursive search you can use depth="-1"
+
+   
+examples:
+
+scan memory and extract strings that contains "http":
+`scan directory="memory" "http"`
+
+scan specific file and extract strings that contains "http":
+`scan directory="C:\Users\adnan\Desktop\pwshem\HxD.exe" "http"`
+
+scan a directory and extract string contains "http" from executable files only:
+`scan directory="C:\Users\adnan\Desktop\" "http"  {"^4d5a"} `
+
 
