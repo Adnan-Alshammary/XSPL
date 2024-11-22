@@ -14,5 +14,15 @@ examples:
 
 `index="hklm::system\CurrentControlSet\Services"`
 
+conditions can be written in different ways:
+
+`index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" (EventID="1" OR EventID="2") `
+
+or
+
+`index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID IN ("1","2") `
+
+Note: keyword between conditions such as "AND", "OR", "IN" should be written in upper-case
+
 
 
