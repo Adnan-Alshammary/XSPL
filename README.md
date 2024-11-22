@@ -24,7 +24,7 @@ or
 
 Notes: 
 - keyword between conditions such as "AND", "OR", "IN" should be written in upper-case
-- you can use wildcard conditions in the language such as ` "cmd.exe" OR "powershell" `
+- you can use wildcard conditions in the query without specifying the field name  ` "cmd.exe" OR "powershell" `
 
 
 
