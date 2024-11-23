@@ -120,6 +120,29 @@ exmples:
 
 ```
 index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="3" 
-| streamstats current="true" window="2"  first(UtcTime) last(UtcTime)  
+| streamstats current="true" window="2"  first(UtcTime) last(UtcTime)
 
 ```
+
+# "rename":
+
+used to rename one or more field.
+
+example:
+```
+index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="3" 
+| rename Image as NewProcess ParentImage as ParentProcess 
+```
+
+# "fields":
+
+use fields command to select/remove fields name from the result
+
+example:
+```
+index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="3" 
+| rename Image as NewProcess ParentImage as ParentProcess 
+| fields NewProcess ParentProcess
+```
+
+
