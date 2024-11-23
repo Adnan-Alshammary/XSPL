@@ -240,3 +240,44 @@ index="hklm::Software\Microsoft\Windows\CurrentVersion\Run"
 | rex field=reg_data "^(?P<exPath>\S+)"
 | append [ scan directory=$exPath$ "http" ]
 ```
+
+
+# "join": 
+this command allow you to combine the results of a main search (left-side dataset) with the results new search (right-side dataset). 
+
+join types: 
+- **inner**: return the intersection between the datasets
+- **left** (or **outer**): return the left result and combine the datasets for the intersection
+- **whitelist**:  return the left dataset without the intersection
+
+
+join has two syntax approach: 
+
+1- in this scenario we join the between results from registry with the sysmon logs to obain only the logs of persistence executables. the join here is based on the field "Image" such that the Image of the left dataset is equal or substring of the Image in the right dataset. if you want to join only in the exact match not substring, you can use the second synatx
+
+```
+index="hklm::Software\Microsoft\Windows\CurrentVersion\Run" | eval numnindex="1"
+| append [index="hklm::Software\Microsoft\Windows\CurrentVersion\RunOnce" | eval numnindex="2"]
+| append [index="hkcu::Software\Microsoft\Windows\CurrentVersion\RunOnce" | eval numnindex="3"] 
+| append [index="hkcu::Software\Microsoft\Windows\CurrentVersion\Run" | eval numnindex="4"] 
+| append [index="hklm::system\CurrentControlSet\Services"| where reg_name=="ImagePath"]  
+| fields reg_data 
+| rex "\\(?P<Proc>[a-zA-Z]+\.[a-z]{3})"
+| rename Proc as Image
+| join type=inner Image [index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="1"]
+```
+
+
+2- the difference in the second syntax it will join only in the exact match (not substring) 
+
+```
+index="hklm::Software\Microsoft\Windows\CurrentVersion\Run" | eval numnindex="1"
+| append [index="hklm::Software\Microsoft\Windows\CurrentVersion\RunOnce" | eval numnindex="2"]
+| append [index="hkcu::Software\Microsoft\Windows\CurrentVersion\RunOnce" | eval numnindex="3"] 
+| append [index="hkcu::Software\Microsoft\Windows\CurrentVersion\Run" | eval numnindex="4"] 
+| append [index="hklm::system\CurrentControlSet\Services"| where reg_name=="ImagePath"]  
+| fields reg_data 
+| rex "\\(?P<Proc>[a-zA-Z]+\.[a-z]{3})"
+| rename Proc as Image
+| join type=inner left=l right=r where l.Image=r.Image [index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="1"]
+```
