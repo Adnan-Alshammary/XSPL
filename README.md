@@ -311,4 +311,10 @@ available functions:
 - **round**
 - **exp**
 
-- 
+example:
+
+create new field "ConvertedTime" which contains a converted utc-time to unix-time 
+```
+index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="1" 
+| eval ConvertedTime= strptime(UtcTime,"%Y-%m-%d %H:%M:%S.%f") 
+```
