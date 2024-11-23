@@ -183,5 +183,30 @@ index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evt
 
 
 
+# "head":
+Returns only N number of specified results in search.
+
+example: 
+
+show only 10 events 
+```
+index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="1" 
+| head 10
+```
+
+
+# "sort":
+used to sort the result by specific field in descending of ascending order.
+- (-) used to sort in descending order
+- (+) used to sort in ascending order
+
+example: 
+```
+index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="1" 
+| eventstats dc(Image) as total_proc by ParentImage
+| where total_proc > 10
+| sort - total_proc
+```
+
 
 
