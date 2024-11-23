@@ -231,7 +231,7 @@ index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evt
 | append [index="C:\Windows\System32\winevt\Logs\Security.evtx"]
 ```
 
-Note that for "scan" command you can pass specific field values to the append as shown below:
+Note that when using "scan" command inside "append" command you can pass specific field values to the scan as shown below:
 
 
 read the registry run then extract the exe path and pass it ($exPath$) to the scan command to extract strings that contains http.
