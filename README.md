@@ -281,3 +281,34 @@ index="hklm::Software\Microsoft\Windows\CurrentVersion\Run" | eval numnindex="1"
 | rename Proc as Image
 | join type=inner left=l right=r where l.Image=r.Image [index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="1"]
 ```
+
+
+
+# "eval": 
+
+this command calculates an expression and add the resulting value into a search results.
+
+available functions:
+
+- **if**
+- **case**
+- **tonumber**
+- **tostring**
+- **coalesce**
+- **like**
+- **match**
+- **now**
+- **strftime**
+- **strptime**
+- **upper**
+- **lower**
+- **len**
+- **abs**
+- **ceiling**
+- **floor**
+- **pow**
+- **sqrt**
+- **round**
+- **exp**
+
+- 
