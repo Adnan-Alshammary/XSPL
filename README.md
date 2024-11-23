@@ -130,7 +130,7 @@ used to rename one or more field.
 
 example:
 ```
-index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="3" 
+index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="1" 
 | rename Image as NewProcess ParentImage as ParentProcess 
 ```
 
@@ -140,9 +140,48 @@ use fields command to select/remove fields name from the result
 
 example:
 ```
-index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="3" 
+index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="1" 
 | rename Image as NewProcess ParentImage as ParentProcess 
 | fields NewProcess ParentProcess
 ```
+
+
+# "proctree":
+this command is used to construct the full process tree for each process. the command expect that the result contains four fields "Image", "ParentImage", "ProcessGuid", "ParentProcessGuid". if your logs contains different field names you can use the command "rename" before using the "proctree".
+
+example:
+
+```
+index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="1" 
+| rename Image as NewProcess ParentImage as ParentProcess 
+| fields NewProcess ParentProcess ProcessGuid ParentProcessGuid
+| proctree
+```
+
+# "search":
+this command used to apply more filter on the result.
+
+example: 
+```
+index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="1" 
+| rename Image as NewProcess ParentImage as ParentProcess 
+| fields NewProcess ParentProcess ProcessGuid ParentProcessGuid
+| proctree
+| search ParentProcTree="*cmd.exe*" AND ParentProcTree="*svchost.exe*"
+```
+
+
+# "where":
+this command used to apply more filter on the result including the operators (==,!=,>,<). the difference between "where" and "search"  is that "search" only support the (=, !=) and support wildcard *.
+
+example: 
+```
+index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="1" 
+| eventstats dc(Image) as total_proc by ParentImage
+| where total_proc > 10
+```
+
+
+
 
 
