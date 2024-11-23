@@ -268,7 +268,7 @@ index="hklm::Software\Microsoft\Windows\CurrentVersion\Run" | eval numnindex="1"
 ```
 
 
-2- the difference in the second syntax it will join only in the exact match (not substring) 
+2- the difference in the second syntax it will join only in the exact match "l.Image=r.Image" (not substring) 
 
 ```
 index="hklm::Software\Microsoft\Windows\CurrentVersion\Run" | eval numnindex="1"
