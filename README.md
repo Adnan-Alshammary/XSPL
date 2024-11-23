@@ -277,7 +277,7 @@ index="hklm::Software\Microsoft\Windows\CurrentVersion\Run" | eval numnindex="1"
 | append [index="hkcu::Software\Microsoft\Windows\CurrentVersion\Run" | eval numnindex="4"] 
 | append [index="hklm::system\CurrentControlSet\Services"| where reg_name=="ImagePath"]  
 | fields reg_data 
-| rex "\\(?P<Proc>[a-zA-Z]+\.[a-z]{3})"
+| rex "(?P<Proc>C:.+\\[a-zA-Z]+\.exe)"
 | rename Proc as Image
 | join type=inner left=l right=r where l.Image=r.Image [index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="1"]
 ```
