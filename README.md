@@ -208,5 +208,15 @@ index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evt
 | sort - total_proc
 ```
 
+# "rex":
 
+this command is used to extract fields using regular expression. it uses the python regular expression.
+
+example: 
+
+extract the the executable name from the full path "Image" and name it as "ImageName"
+```
+index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="1" 
+| rex field=Image "(?P<ImageName>[a-zA-Z]+\.exe)" 
+```
 
