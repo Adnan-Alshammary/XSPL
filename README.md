@@ -220,3 +220,23 @@ index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evt
 | rex field=Image "(?P<ImageName>[a-zA-Z]+\.exe)" 
 ```
 
+
+# "append":
+this command allow you to run new search and append its result to the previous result. 
+
+example:
+
+```
+index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" 
+| append [index="C:\Windows\System32\winevt\Logs\Security.evtx"]
+```
+
+Note that for "scan" command you can pass specific field values to the append as shown below:
+
+
+read the registry run then extract the exe path and pass it ($exPath$) to the scan command to extract strings that contains http.
+```
+index="hklm::Software\Microsoft\Windows\CurrentVersion\Run"
+| rex field=reg_data "^(?P<exPath>\S+)"
+| append [ scan directory=$exPath$ "http" ]
+```
