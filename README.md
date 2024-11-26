@@ -14,6 +14,13 @@ examples:
 
 `index="hklm::system\CurrentControlSet\Services"`
 
+you can use wildcard to read multiple files:
+
+`index="C:\Users\adnan\Desktop\test\*.csv"`
+
+`index="C:\Users\adnan\Desktop\test\*"`
+
+
 conditions can be written in different ways:
 
 `index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" (EventID="1" OR EventID="2") `
