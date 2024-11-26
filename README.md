@@ -127,7 +127,7 @@ exmples:
 
 ```
 index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="3" 
-| streamstats current="true" window="2"  first(UtcTime) last(UtcTime)
+| streamstats current="true" window=2  first(UtcTime) last(UtcTime)
 
 ```
 
