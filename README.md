@@ -85,8 +85,7 @@ available functions:
 - **median**
 - **mean**
 - **var**
-- **first**
-- **last**
+
 
 exmples: 
 
@@ -115,7 +114,9 @@ index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evt
 
 
 # "streamtstats":
-incrementaly adds a cumulative statistical value to each event in the result. it support same functions in stats and eventstats.
+incrementaly adds a cumulative statistical value to each event in the result. it support all functions in stats and eventstats in addtion of the following two functions:
+- **first**
+- **last**
 
 options:
 - **current**: "true" or "false" to includes the current event in the summary calculations. Default is "true"
