@@ -113,7 +113,7 @@ index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evt
 ```
 
 
-# "streamtstats":
+# "streamstats":
 incrementaly adds a cumulative statistical value to each event in the result. it support all functions in stats and eventstats in addtion of the following two functions:
 - **first**
 - **last**
