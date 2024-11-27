@@ -126,11 +126,14 @@ options:
 
 exmples: 
 
-```
-index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="3" 
-| streamstats current="true" window=2  first(UtcTime) last(UtcTime)
 
 ```
+index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx" EventID="1" 
+| streamstats current="true" window=2 first(UtcTime)  as FirstTime  last(UtcTime) as LastTime count 
+```
+
+
+
 
 # "rename":
 
