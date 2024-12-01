@@ -299,9 +299,10 @@ index="hklm::Software\Microsoft\Windows\CurrentVersion\Run" | eval numnindex="1"
 
 this command calculates an expression and add the resulting value into a search results.
 
+Note: to avoid errors, always create new field name instead of overwriting existing field 
+
 available functions:
 
-- **if**
 - **case**
 - **tonumber**
 - **tostring**
