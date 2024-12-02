@@ -1,3 +1,9 @@
+# XSPL : 
+
+XSPL, or Extended SPL, is an enhanced version of the SPL language that includes additional features such as memory scanning, file scanning, and Windows registry parsing. XSPL is capable of parsing various log file formats, including EVTX, CSV, JSON, and TXT. It provides two versions GUI and command-line (CLI).
+
+
+
 
 # "index" and "scan": 
 
