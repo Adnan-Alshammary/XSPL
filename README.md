@@ -5,7 +5,9 @@ XSPL, or Extended SPL, is an enhanced version of the SPL language that includes 
 
 
 
-# "index" and "scan": 
+# Commands:
+
+## "index" and "scan": 
 
 query can start by either index attribute or scan command.
 
@@ -67,7 +69,7 @@ examples:
 `scan directory="C:\Users\adnan\Desktop\" "http"  {"^4d5a"} `
 
 
-# "stats":
+## "stats":
 
 stats command is used to calculate statistics such as average, sum or standard deviation.
 
@@ -107,7 +109,7 @@ Notes:
 
 
 
-# "eventstats":
+## "eventstats":
 
 similar to stats function. the main deffierence is that eventstats does not change the incoming result, it only add the result to it. eventstats support same functions in stats command.
 
@@ -119,7 +121,7 @@ index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evt
 ```
 
 
-# "streamstats":
+## "streamstats":
 incrementaly adds a cumulative statistical value to each event in the result. it support all functions in stats and eventstats in addtion of the following two functions:
 - **first**
 - **last**
@@ -141,7 +143,7 @@ index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evt
 
 
 
-# "rename":
+## "rename":
 
 used to rename one or more field.
 
@@ -151,7 +153,7 @@ index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evt
 | rename Image as NewProcess ParentImage as ParentProcess 
 ```
 
-# "fields":
+## "fields":
 
 use fields command to select/remove fields name from the result
 
@@ -163,7 +165,7 @@ index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evt
 ```
 
 
-# "proctree":
+## "proctree":
 this command is used to construct the full process tree for each process. the command expect that the result contains four fields "Image", "ParentImage", "ProcessGuid", "ParentProcessGuid". if your logs contains different field names you can use the command "rename" before using the "proctree".
 
 example:
@@ -175,7 +177,7 @@ index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evt
 | proctree
 ```
 
-# "search":
+## "search":
 this command used to apply more filter on the result.
 
 example: 
@@ -188,7 +190,7 @@ index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evt
 ```
 
 
-# "where":
+## "where":
 this command used to apply more filter on the result including the operators (==,!=,>,<). the difference between "where" and "search"  is that "search" only support the (=, !=) and support wildcard *.
 
 example: 
@@ -200,7 +202,7 @@ index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evt
 
 
 
-# "head":
+## "head":
 Returns only N number of specified results in search.
 
 example: 
@@ -212,7 +214,7 @@ index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evt
 ```
 
 
-# "sort":
+## "sort":
 used to sort the result by specific field in descending of ascending order.
 - (-) used to sort in descending order
 - (+) used to sort in ascending order
@@ -225,7 +227,7 @@ index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evt
 | sort - total_proc
 ```
 
-# "rex":
+## "rex":
 
 this command is used to extract fields using regular expression. it uses the python regular expression.
 
@@ -238,7 +240,7 @@ index="C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evt
 ```
 
 
-# "append":
+## "append":
 this command allow you to run new search and append its result to the previous result. 
 
 example:
@@ -259,7 +261,7 @@ index="hklm::Software\Microsoft\Windows\CurrentVersion\Run"
 ```
 
 
-# "join": 
+## "join": 
 this command allow you to combine the results of a main search (left-side dataset) with the results new search (right-side dataset). 
 
 join types: 
@@ -301,7 +303,7 @@ index="hklm::Software\Microsoft\Windows\CurrentVersion\Run" | eval numnindex="1"
 
 
 
-# "eval": 
+## "eval": 
 
 this command calculates an expression and add the resulting value into a search results.
 
