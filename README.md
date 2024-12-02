@@ -2,7 +2,7 @@
 
 
 
-XSPL, or Extended SPL, is an implementation of the SPL language with additional features such as memory scanning, file scanning, and Windows registry parsing. XSPL is capable of parsing various log file formats, including EVTX, CSV, JSON, and TXT. It provides two versions GUI and command-line (CLI) that can be used for threat hunting.
+XSPL, or Extended SPL, is an implementation of the SPL language with additional features such as memory scanning, file scanning, and Windows registry parsing. XSPL is capable of parsing various log file formats, including EVTX, CSV, JSON, SQLlite3 and TXT. It provides two versions GUI and command-line (CLI) that can be used for threat hunting.
 
 
 
