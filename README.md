@@ -10,14 +10,14 @@ XSPL, or Extended SPL, is an implementation of the SPL language with additional 
 
 
 
-
+```
 __   __ ___________ _
 \ \ / //  ___| ___ \ |
  \ V / \ `--.| |_/ / |
  /   \  `--. \  __/| |
 / /^\ \/\__/ / |   | |____
 \/   \/\____/\_|   \_____/
-
+```
 
 example:
 XSPLc.exe  -q "index=\"logs.csv\" | stats count by Image"  -o myfilename
