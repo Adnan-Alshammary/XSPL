@@ -33,9 +33,6 @@ options:
 
 
 
-XSPL documentation: https://github.com/Adnan-Alshammary/XSPL/
-
-
 ***Note:*** use '\' for doube qutation inside the query in commandline  (XSPLc.exe  -q "index=\"logs.csv\" | stats count by Image"  -o myfilename
 )
 
