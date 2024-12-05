@@ -6,6 +6,7 @@ XSPL, or Extended SPL, is an implementation of the SPL language with additional 
 
 
 
+![image](https://github.com/user-attachments/assets/9494a453-b5f3-4e60-a797-39d1012f00d4)
 
 
 
