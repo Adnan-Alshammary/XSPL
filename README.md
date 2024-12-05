@@ -11,6 +11,36 @@ XSPL, or Extended SPL, is an implementation of the SPL language with additional 
 
 
 
+__   __ ___________ _
+\ \ / //  ___| ___ \ |
+ \ V / \ `--.| |_/ / |
+ /   \  `--. \  __/| |
+/ /^\ \/\__/ / |   | |____
+\/   \/\____/\_|   \_____/
+
+
+example:
+XSPLc.exe  -q "index=\"logs.csv\" | stats count by Image"  -o myfilename
+
+
+options:
+
+-q or --query :  the query
+
+-o or --output: name of the file contains the output result
+
+-t or --type: file output type (csv or json)
+
+
+
+XSPL documentation: https://github.com/Adnan-Alshammary/XSPL/
+
+
+***Note:*** use '\' for doube qutation inside the query in commandline  (XSPLc.exe  -q "index=\"logs.csv\" | stats count by Image"  -o myfilename
+)
+
+
+
 # Commands:
 
 ## "index" and "scan": 
